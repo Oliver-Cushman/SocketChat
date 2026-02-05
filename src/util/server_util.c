@@ -17,7 +17,8 @@ int openServer(char *addressStr, u_int16_t port, u_int8_t maxConnections) {
 struct Client acceptClient(int serverFd) {
     struct Client client;
 
-    client.fd = accept(serverFd, (struct sockaddr*) &(client.address), &(client.addressLength));
+    while (client.fd = accept(serverFd, (struct sockaddr*) &(client.address), &(client.addressLength)) == -1)
+        printf("Unable to accept client\n");
 
     return client;
 }

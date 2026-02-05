@@ -22,3 +22,21 @@ int openSocket() {
 
     return fd;
 }
+
+int sendStringMessage(int fd, char *message) {
+    int bytesSent = send(fd, message, strlen(message), 0);
+
+    if (bytesSent == -1) 
+        perror("Failed to send message");
+    
+    return bytesSent;
+}
+
+char* recvStringMessage(int fd, char *messageBuffer, ssize_t messageBufferSize) {
+    ssize_t bytesRead = recv(fd, messageBuffer, messageBufferSize, 0);
+
+    if (bytesRead == -1)
+        perror("Failed to read message");
+
+    return messageBuffer;
+}
