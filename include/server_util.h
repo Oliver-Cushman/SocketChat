@@ -5,6 +5,6 @@
 
 int openServer(char *addressStr, u_int16_t port, u_int8_t maxConnections);
 
-struct Client acceptClient(int serverFd);
+Client acceptClient(int serverFd);
 
 #endif

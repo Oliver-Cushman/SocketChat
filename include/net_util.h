@@ -8,11 +8,11 @@
 #include <stdio.h>
 #include <string.h>
 
-struct Client {
+typedef struct {
     struct sockaddr_in address;
     socklen_t addressLength;
     int fd;
-};
+} Client;  
 
 struct sockaddr_in initIPv4Address(char *addressStr, u_int16_t port);
 

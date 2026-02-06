@@ -9,7 +9,7 @@
 int main() {
     int fd = openServer(SERVER_ADDRESS, PORT, MAX_CONNECTIONS);
     // Accept clients
-    struct Client clients[MAX_CONNECTIONS];
+    Client clients[MAX_CONNECTIONS];
     printf("Waiting for %d clients\n", MAX_CONNECTIONS);
     for (int i = 0; i < MAX_CONNECTIONS; i++) {
         clients[i] = acceptClient(fd);
