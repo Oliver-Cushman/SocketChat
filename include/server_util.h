@@ -3,8 +3,8 @@
 
 #include "net_util.h"
 
-int openServer(char *addressStr, u_int16_t port, u_int8_t maxConnections);
+int openServer(const char* addressStr, u_int16_t port, u_int8_t maxConnections);
 
-Client acceptClient(int serverFd);
+void acceptClient(int serverFd, Client* client);
 
 #endif

@@ -1,7 +1,9 @@
 #include "../../include/server_util.h"
 
-int openServer(char *addressStr, u_int16_t port, u_int8_t maxConnections) {
-    struct sockaddr_in address = initIPv4Address(addressStr, port);
+int openServer(const char* addressStr, u_int16_t port, u_int8_t maxConnections) {
+    struct sockaddr_in address;
+    initIPv4Address(&address, addressStr, port);
+
     int fd = openSocket();
 
     int status = -1;
@@ -14,10 +16,10 @@ int openServer(char *addressStr, u_int16_t port, u_int8_t maxConnections) {
     return status;
 }
 
-Client acceptClient(int serverFd) {
-    Client client;
+void acceptClient(int serverFd, Client* client) {
+    memset(client, 0, sizeof(Client));
 
-    while (client.fd = accept(serverFd, (struct sockaddr*) &(client.address), &(client.addressLength)) == -1)
+    while (client->fd = accept(serverFd, (struct sockaddr*) &(client->address), &(client->addressLength)) == -1)
         printf("Unable to accept client\n");
 
     return client;

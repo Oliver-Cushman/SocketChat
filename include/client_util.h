@@ -3,6 +3,6 @@
 
 #include "net_util.h"
 
-int openClient(char *serverAddressStr, u_int16_t port);
+int openClient(const char* serverAddressStr, u_int16_t port);
 
 #endif

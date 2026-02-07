@@ -12,7 +12,7 @@ int main() {
     Client clients[MAX_CONNECTIONS];
     printf("Waiting for %d clients\n", MAX_CONNECTIONS);
     for (int i = 0; i < MAX_CONNECTIONS; i++) {
-        clients[i] = acceptClient(fd);
+        acceptClient(fd, &(clients[i]));
         if (i + 1 >= MAX_CONNECTIONS) {
             printf("Connection successful, beginning session\n");
         } else {

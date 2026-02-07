@@ -1,7 +1,8 @@
 #include "../../include/client_util.h"
 
-int openClient(char *serverAddressStr, u_int16_t port) {
-    struct sockaddr_in serverAddress = initIPv4Address(serverAddressStr, port);
+int openClient(const char* serverAddressStr, u_int16_t port) {
+    struct sockaddr_in serverAddress;
+    initIPv4Address(&serverAddress, serverAddressStr, port);
     int fd = openSocket();
 
     int status = -1;

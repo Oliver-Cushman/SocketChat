@@ -14,12 +14,12 @@ typedef struct {
     int fd;
 } Client;  
 
-struct sockaddr_in initIPv4Address(char *addressStr, u_int16_t port);
+void initIPv4Address(struct sockaddr_in* address, const char* addressStr, u_int16_t port);
 
 int openSocket();
 
-int sendStringMessage(int fd, char *message);
+int sendStringMessage(int fd, const char* message);
 
-char* recvStringMessage(int fd, char *messageBuffer, ssize_t messageBufferSize);
+char* recvStringMessage(int fd, char* messageBuffer, ssize_t messageBufferSize);
 
 #endif
